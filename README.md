@@ -16,6 +16,7 @@ Installation des dépendances :
 ```sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip dosfstools mpg321 -y
 pip3 install customtkinter --break-system-packages
+```
 
 
 2. Création du Script de Formatage Automatique
@@ -26,7 +27,7 @@ Créer le fichier de formatage
 sudo nano /usr/local/bin/auto_format_usb.sh
 
 Ajoutez ce code :
-
+```
 #!/bin/bash
 
 LOGFILE="/var/log/usb_format.log"
@@ -54,16 +55,16 @@ else
     echo "Erreur lors du formatage !" >> $LOGFILE
 fi
 
-
+```
 
 Sauvegarde et fermeture : CTRL+O, ENTER, CTRL+X
 
 
 
 Rendre le script exécutable :
-
+```
 sudo chmod +x /usr/local/bin/auto_format_usb.sh
-
+```
 
 
 3. Lancer ou arrêter temporairement l'interface graphique
