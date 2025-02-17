@@ -131,5 +131,15 @@ Redémarrez le Raspberry Pi pour tester :
 
 sudo reboot
 
+Installation de l'écran
+[si vous voulez le meme que le mien dans la video](https://s.click.aliexpress.com/e/_onk5ohm)
+```
+sudo rm -rf LCD-show
+git clone https://github.com/goodtft/LCD-show.git
+chmod -R 755 LCD-show
+cd LCD-show/
+sudo ./LCD24-3A+-show
+```
+
 Après le redémarrage, l'interface se lancera automatiquement sur l'écran 2.4 pouces et restera disponible en permanence. ✅
 
