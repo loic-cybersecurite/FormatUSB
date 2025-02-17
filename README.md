@@ -13,7 +13,7 @@ Un écran
 
 Installation des dépendances :
 
-sudo apt update && sudo apt upgrade -y
+```sudo apt update && sudo apt upgrade -y
 sudo apt install python3-pip dosfstools mpg321 -y
 pip3 install customtkinter --break-system-packages
 
