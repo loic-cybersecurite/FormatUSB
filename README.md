@@ -23,9 +23,9 @@ pip3 install customtkinter --break-system-packages
 
 Le script auto_format_usb.sh sera responsable du formatage de la clé USB.
 Créer le fichier de formatage
-
+```
 sudo nano /usr/local/bin/auto_format_usb.sh
-
+```
 Ajoutez ce code :
 ```
 #!/bin/bash
@@ -72,39 +72,39 @@ sudo chmod +x /usr/local/bin/auto_format_usb.sh
 Désactiver temporairement l'interface graphique
 
 Si vous souhaitez désactiver l'interface temporairement, sans la supprimer complètement, utilisez :
-
+```
 sudo systemctl stop usb-gui.service
-
+```
 Cela arrêtera l'interface jusqu'au prochain redémarrage.
 
 Réactiver l'interface graphique
 
 Si vous voulez la relancer manuellement sans redémarrer le Raspberry Pi, utilisez :
-
+```
 sudo systemctl start usb-gui.service
-
+```
 Désactiver l'interface au démarrage
 
 Si vous souhaitez empêcher l'interface de démarrer automatiquement au prochain redémarrage :
-
+```
 sudo systemctl disable usb-gui.service
-
+```
 Réactiver l'interface au démarrage
 
 Si vous voulez qu'elle redémarre automatiquement :
-
+```
 sudo systemctl enable usb-gui.service
-
+```
 4. Lancer l'interface graphique automatiquement au démarrage
 
 Pour que l'interface de formatage USB démarre automatiquement à chaque démarrage du Raspberry Pi, nous avons créé un service systemd.
 
 Créer le service systemd
-
+```
 sudo nano /etc/systemd/system/usb-gui.service
-
+```
 Ajoutez ce contenu :
-
+```
 [Unit]
 Description=Interface Graphique de Formatage USB
 After=multi-user.target
@@ -112,21 +112,21 @@ After=multi-user.target
 [Service]
 ExecStart=/usr/bin/python3 /usr/local/bin/usb_format_gui.py
 Restart=always
-User=low
+User=(METTRE LE NOM DE VOTRE UTILISATEUR)
 Environment=DISPLAY=:0
 Environment=SDL_FBDEV=/dev/fb1
 
 [Install]
 WantedBy=multi-user.target
-
+```
 Sauvegarde et fermeture : CTRL+O, ENTER, CTRL+X
 
 Activez et démarrez le service :
-
+```
 sudo systemctl daemon-reload
 sudo systemctl enable usb-gui.service
 sudo systemctl start usb-gui.service
-
+```
 Redémarrez le Raspberry Pi pour tester :
 
 sudo reboot
